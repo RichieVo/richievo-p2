@@ -70,8 +70,8 @@ mRequest.onreadystatechange = function() {
 			mJson = JSON.parse(mRequest.responseText);
 
 			//Iterate over JSON
-			for(var i = 0; i < mUrl.length; i++) {
-				var obj = mUrl[i];
+			for(var i = 0; i < mJson.length; i++) {
+				var obj = mJson[i];
 
 				mImages.push(new GalleryImage(imgPath, location, description, date));
 			}
