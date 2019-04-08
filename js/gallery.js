@@ -37,6 +37,12 @@ function swapPhoto() {
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
+	document.getElementById("photoHolder").src=mImages[mCurrentIndex][imgPath];
+	document.getElementById("description").src=mImages[mCurrentIndex][description];
+	document.getElementById("location").src=mImages[mCurrentIndex][location];
+	document.getElementById("date").src=mImages[mCurrentIndex][date];
+
+
 	console.log('swap photo');
 }
 
@@ -62,6 +68,14 @@ mRequest.onreadystatechange = function() {
 		try {
 			// Let’s try and see if we can parse JSON
 			mJson = JSON.parse(mRequest.responseText);
+
+			//Iterate over JSON
+			for(var i = 0; i < mUrl.length; i++) {
+				var obj = mUrl[i];
+
+				mImages.push(new GalleryImage(imgPath, location, description, date));
+			}
+
 			// Let’s print out the JSON; It will likely show as "obj"
 			console.log(mJson);
 
@@ -99,14 +113,32 @@ window.addEventListener('load', function() {
 
 }, false);
 
-function GalleryImage(location, description, date, img) {
+var mImages = [];
+
+//Part 1
+function GalleryImage(imgPath, location, description, date) {
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
 	//2. description of photo
 	//3. the date when the photo was taken
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+	this.imgPath = imgPath;
 	this.location = location;
 	this.description = description;
 	this.date = date;
-	this.img = img;
+}
+//Part 3 Step 2
+ #moreIndicator rot90{
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+//Part 3 Step 3
+if ($( "#mydiv" ).hasClass( "rot90" )) {
+	//Adding a class attribute value rot270
+} else {
+	//Removing a class attribute value rot270 and add rot90
 }
