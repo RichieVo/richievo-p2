@@ -127,7 +127,7 @@ function GalleryImage(imgPath, location, description, date) {
 	this.description = description;
 	this.date = date;
 }
-//Part 3 Step 2
+//Part 3 Step 1
  #moreIndicator rot90{
 	-webkit-transform: rotate(90deg);
 	-moz-transform: rotate(90deg);
@@ -142,3 +142,16 @@ if ($( "#mydiv" ).hasClass( "rot90" )) {
 } else {
 	//Removing a class attribute value rot270 and add rot90
 }
+
+$(document).ready(() => {
+	$("nextPhoto").hover(function(){
+		document.getElementById("nextPhoto").style.opacity = "0.8";
+	}, function(){
+		document.getElementById("nextPhoto").style.opacity = "1";
+	});
+	$("prevPhoto").hover(function(){
+		document.getElementById("prevPhoto").style.opacity = "0.8";
+	}function(){
+		document.getElementById("nextPhoto").style.opacity = "1";
+	});
+});
